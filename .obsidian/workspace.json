@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Number Theory/Mobuis.md",
+                "file": "Number Theory/Counting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mobuis"
+              "title": "Counting"
             }
           }
         ]
@@ -185,8 +185,8 @@
   },
   "active": "898b8725442ea16d",
   "lastOpenFiles": [
-    "Number Theory/Counting.md",
     "Number Theory/Mobuis.md",
+    "Number Theory/Counting.md",
     "Number Theory/Catalan number.md",
     "Number Theory/PHI.md",
     "Number Theory/LDE and CRT.md",
