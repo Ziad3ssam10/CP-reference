@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Number Theory/Counting.md",
+                "file": "Number Theory/Sieve and linear and segmented sieve.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Counting"
+              "title": "Sieve and linear and segmented sieve"
             }
           }
         ]
@@ -183,15 +183,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "898b8725442ea16d",
+  "active": "6f67a19937f6fc0e",
   "lastOpenFiles": [
     "Number Theory/Mobuis.md",
-    "Number Theory/Counting.md",
-    "Number Theory/Catalan number.md",
     "Number Theory/PHI.md",
-    "Number Theory/LDE and CRT.md",
-    "Number Theory/Sieve and linear and segmented sieve.md",
     "Number Theory/Millier rabin.md",
+    "Number Theory/LDE and CRT.md",
+    "Number Theory/Catalan number.md",
+    "Number Theory/Counting.md",
+    "Number Theory/Sieve and linear and segmented sieve.md",
     "Number Theory",
     "Convolution/FFT tricks.md",
     "Convolution/FWHT.md",
