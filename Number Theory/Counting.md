@@ -41,17 +41,6 @@ $$\sum_{k=0}^{n} \binom{n}{k} = 2^n$$
 
 
 
-$$\sum_{k=0}^{n} \binom{n}{k} 
-=
-\sum_{\substack{k=0 \\ k \text{ even}}}^{n} \binom{n}{k}
-+
-\sum_{\substack{k=0 \\ k \text{ odd}}}^{n} \binom{n}{k}
-= 2^{n-1}
-\quad \text{for } n \ge 1$$
-
-
-
-
 
 $$\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$$
 
