@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Matrix.md",
+                "file": "DP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Matrix"
+              "title": "DP"
             }
           }
         ]
@@ -185,17 +185,20 @@
   },
   "active": "6cbbe69f1584dc1b",
   "lastOpenFiles": [
+    "Data structure/BIT.md",
+    "Data structure/Segment Tree.md",
+    "Graph/LCA.md",
+    "Data structure/DSU.md",
     "Random.md",
+    "Matrix.md",
     "README.md",
     "Graph/SCC.md",
     "Graph/MCMF.md",
     "Graph/Max Flow.md",
     "Graph/Matching.md",
-    "Graph/LCA.md",
     "Graph/Hungrian.md",
     "Graph/Floyd and bellman Ford.md",
     "Graph/Euler Path and circuit.md",
-    "Matrix.md",
     "Number Theory/Counting.md",
     "Number Theory/Sieve and linear and segmented sieve.md",
     "Number Theory/PHI.md",
@@ -208,10 +211,7 @@
     "Data structure/Centriod Decompstion.md",
     "Data structure/HLD.md",
     "Data structure/Sparse Table.md",
-    "Data structure/BIT.md",
     "Data structure/DSU on tree.md",
-    "Data structure/DSU.md",
-    "Data structure/Lazy Segment Tree.md",
     "Data structure",
     "Strings",
     "Number Theory",
