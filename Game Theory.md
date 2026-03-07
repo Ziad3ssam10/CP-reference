@@ -16,16 +16,7 @@ for(int i = 1;i<=10000;i++){
     }
 }
 
-ll grundy(ll x) {
-    if (__builtin_popcountll(x) == 1)return x / 2;
-    if(isPowerOfTwo(x+1)) return 0;
-    ll w = (1LL << (63 - __builtin_clzll(x))) / 2, cur = w * 2;
-    while (cur + w - 1 < x) {
-        cur += w;
-        w /= 2;
-    }
-    return w + (x - cur);
-}
+
 
 
 int m;cin >> m;

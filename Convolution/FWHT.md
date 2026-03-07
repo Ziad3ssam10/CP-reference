@@ -51,3 +51,48 @@ vector<ll> multiply(vector<ll> a, vector<ll> b, ll f) {
     return c;
 }
 ```
+
+```cpp
+template<int MOD>  
+struct FWHT {  
+    int fast(int b, int e) {  
+        int res = 1;  
+        for (; e; e >>= 1, b = 1ll * b * b % MOD)  
+            if (e & 1)  
+                res = 1ll * res * b % MOD;  
+        return res;  
+    }  
+  
+    inline int add(int x, int y) {  
+        return x + y - (x + y >= MOD ? MOD : 0);  
+    }  
+  
+    inline int sub(int x, int y) {  
+        return x - y + (x - y < 0 ? MOD : 0);  
+    }  
+  
+    void FST(vector<int> &a, bool inv) {  
+        for (int n = (int) a.size(), step = 1; step < n; step *= 2) {  
+            for (int i = 0; i < n; i += 2 * step)  
+                for (int j = i; j < i + step; j++) {  
+                    int &u = a[j], &v = a[j + step];  
+                    tie(u, v) =  
+                            //  inv ? pii(sub(v,u), u) : pii(v, add(u,v)); // AND  
+                            //  inv ? pii(v, sub(u,v)) : pii(add(u,v), u); // OR /// include-line                            pair<ll, ll>(add(u, v), sub(u, v)); // XOR /// include-line  
+                }  
+        }  
+        if (inv) {  
+            int divisor = fast((int) a.size(), MOD - 2);  
+            for (int &x: a) x = 1ll * x * divisor % MOD; // XOR only /// include-line  
+        }  
+    }  
+  
+    vector<int> conv(vector<int> a, vector<int> b) {  
+        FST(a, 0);  
+        FST(b, 0);  
+        for (int i = 0; i < (int) a.size(); i++) a[i] = 1ll * a[i] * b[i] % MOD;  
+        FST(a, 1);  
+        return a;  
+    }  
+};
+```
