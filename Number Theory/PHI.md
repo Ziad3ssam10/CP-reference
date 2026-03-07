@@ -12,6 +12,8 @@ Euler's totient function, also known as **phi-function**  $\phi (n)$ , cou
 - If  $a$  and  $b$  are relatively prime, then:
     
       $$\phi(a b) = \phi(a) \cdot \phi(b).$$
+
+
 Codes 
 
 ### phi in sqrt
