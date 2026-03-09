@@ -211,3 +211,15 @@ pair<int, int> merge(int a1, int m1, int a2, int m2) {
 }
 
 ```
+
+### inverse any mod 
+```cpp
+ll inverse(ll a, ll m) {
+    ll x, y;
+    ll g = extended_euclid(a, m, x, y);
+    if (g != 1) {
+        return -1;
+    }
+    return (x % m + m) % m;
+}
+```

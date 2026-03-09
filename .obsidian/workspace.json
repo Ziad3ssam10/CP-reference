@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e8019a616d9f09a6",
+        "id": "a45c698daae07051",
         "type": "tabs",
         "children": [
           {
-            "id": "a9e469da3ce43fd7",
+            "id": "e14f27f2749b389e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Number Theory/PHI.md",
+                "file": "Geomtry/Helper Functions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PHI"
+              "title": "Helper Functions"
             }
           }
         ]
@@ -183,35 +183,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "a9e469da3ce43fd7",
+  "active": "e14f27f2749b389e",
   "lastOpenFiles": [
-    "Number Theory/Sieve and linear and segmented sieve.md",
-    "Number Theory/PHI.md",
-    "Number Theory/Rules.md",
+    "Geomtry/Polygon.md",
+    "Geomtry/Rays.md",
+    "Geomtry/Basics.md",
+    "Geomtry/Segment.md",
+    "Geomtry/Circle.md",
+    "Geomtry/Helper Functions.md",
     "Number Theory/LDE and CRT.md",
+    "Geomtry/Sweep line appliction/Rectangle union.md",
+    "Geomtry/Sweep line appliction/All pair Segment intersection.md",
+    "Geomtry/Picks theorem.md",
+    "Geomtry/Manhattan Trick.md",
+    "Geomtry/Sweep line appliction",
+    "Geomtry/Sweep line appliction/Closest pair problem.md",
+    "Data structure/DSU.md",
+    "DP.md",
+    "Geomtry/Winding number.md",
+    "Game Theory.md",
+    "Matrix.md",
+    "Random.md",
+    "Number Theory/PHI.md",
+    "Number Theory/Sieve and linear and segmented sieve.md",
+    "Number Theory/Rules.md",
     "Number Theory/Millier rabin.md",
     "Number Theory/Mobuis.md",
     "Number Theory/Counting.md",
     "Geomtry/Forumlas.md",
-    "Game Theory.md",
     "Convolution/FFT tricks.md",
-    "Geomtry/Convex Hull.md",
-    "Geomtry/Helper Functions.md",
-    "Geomtry/Polygon.md",
-    "Geomtry/Circle.md",
-    "Geomtry/Others.md",
-    "Geomtry/Line.md",
-    "Geomtry/Segment.md",
-    "Geomtry/Winding number.md",
-    "Geomtry/Rotating Calipers.md",
-    "Geomtry/Bascis.md",
-    "Geomtry/Lattice point.md",
-    "Geomtry/Rays.md",
-    "Geomtry/Transformations.md",
-    "Untitled.md",
-    "Data structure/DSU on tree.md",
     "Geomtry",
-    "Matrix.md",
     "Graph",
     "Data structure",
     "Strings",
