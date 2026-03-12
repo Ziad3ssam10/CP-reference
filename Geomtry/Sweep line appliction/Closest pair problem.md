@@ -23,7 +23,7 @@ void solve(int tc) {
         return l.y < r.y;  
     });  
     set<pair<int, int>> st;  
-    int ans = dist(a[0], a[1]);  
+	    int ans = dist(a[0], a[1]);  a[ifor]
     pair<int, int> indices = {a[0].id, a[1].id};  
     int left = 0;  
     for (int i = 0; i < n; i++) {  
