@@ -39,6 +39,37 @@ vector<int> MOalgo(vector<query> qq) {
 }
 
 const int Sq = 450, N = 2e5 + 10;
+short a[N];
+vector<pair<short, short>> lazy[N / Sq + 10];
+int n, q;
+short up[105];
+ 
+void prog(int idx) {
+    for (int i = 1; i <= 100; i++)up[i] = i;
+    for (int i = lazy[idx].size() - 1; i >= 0; i--) {
+        auto &[x, y] = lazy[idx][i];
+        up[x] = up[y];
+    }
+    for (int i = idx * Sq; i < min(n, idx * Sq + Sq); i++)a[i] = up[a[i]];
+    lazy[idx].clear();
+}
+ 
+void update(int l, int r, int x, int y) {
+    prog(l / Sq);
+    prog(r / Sq);
+    for (int i = l; i <= r;) {
+        if (i % Sq == 0 and i + Sq - 1 <= r) {
+            lazy[i / Sq].emplace_back(x, y);
+            i += Sq;
+        } else {
+            if (a[i] == x)a[i] = y;
+            i++;
+        }
+    }
+}
+
+
+const int Sq = 450, N = 2e5 + 10;
 vector<int> a(N), buc(N / Sq + 10);
 int n, q;
 
