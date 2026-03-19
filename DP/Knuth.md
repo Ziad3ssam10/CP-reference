@@ -1,3 +1,48 @@
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>d</mi>
+  <mi>p</mi>
+  <mo stretchy="false">(</mo>
+  <mi>i</mi>
+  <mo>,</mo>
+  <mi>j</mi>
+  <mo stretchy="false">)</mo>
+  <mo>=</mo>
+  <munder>
+    <mo data-mjx-texclass="OP" movablelimits="true">min</mo>
+    <mrow data-mjx-texclass="ORD">
+      <mn>0</mn>
+      <mo>&#x2264;</mo>
+      <mi>k</mi>
+      <mo>&#x2264;</mo>
+      <mi>j</mi>
+    </mrow>
+  </munder>
+  <mspace linebreak="newline"></mspace>
+  <mrow data-mjx-texclass="ORD">
+    <mi>d</mi>
+    <mi>p</mi>
+    <mo stretchy="false">(</mo>
+    <mi>i</mi>
+    <mo>&#x2212;</mo>
+    <mn>1</mn>
+    <mo>,</mo>
+    <mi>k</mi>
+    <mo>&#x2212;</mo>
+    <mn>1</mn>
+    <mo stretchy="false">)</mo>
+    <mo>+</mo>
+    <mi>C</mi>
+    <mo stretchy="false">(</mo>
+    <mi>k</mi>
+    <mo>,</mo>
+    <mi>j</mi>
+    <mo stretchy="false">)</mo>
+    <mspace linebreak="newline"></mspace>
+  </mrow>
+</math>
+
+
 #### Cp algo 
 ```cpp
 int solve() {

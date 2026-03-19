@@ -1,8 +1,14 @@
+
+$$dp[i] = \min_{j < i} \big( m(j) \cdot x(i) + c(j) \big) + d(i)$$
+
+
 ```cpp
 // Description: Container where you can add lines of the form kx+m, and query maximum values at points x.  
 // to find the minimum  
 // add(-k, -m)  
-// query(x) * -1  
+// query(x) * -1 
+
+ 
 struct Line {  
     ll k, m;  
     mutable ll p;  
