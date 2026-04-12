@@ -5,13 +5,13 @@ struct FlowEdge {
  
     FlowEdge(int v, int u, long long cap) : v(v), u(u), cap(cap) {}
 };
- 
 struct Dinic {
     const long long flow_inf = 1e18;
     vector<FlowEdge> edges;
     vector<vector<int>> adj;
     int n, m = 0;
     int s, t;
+ 
     vector<int> level, ptr;
     queue<int> q;
  
