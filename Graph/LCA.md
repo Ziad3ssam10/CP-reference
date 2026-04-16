@@ -5,7 +5,7 @@ int parent[N][LG];
 int lvl[N];
 vector<int> adj[N];
 
-	void build(int node, int par, int d) {
+    void build(int node, int par, int d) {
 	    parent[node][0] = par;
 	    lvl[node] = d;
 	    for (int i = 1; i < LG; i++) {

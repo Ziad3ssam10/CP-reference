@@ -1,3 +1,83 @@
+
+### Custom Sort
+```cpp
+Priority queue custom sort
+class Compare
+{
+public:
+    bool operator()(int below, int above)
+    {
+        return below < above;
+    }
+};
+priority_queue<int, vector<int>, Compare> pq;
+Set & multiset custom sort
+struct Compare
+{
+    bool operator()(const int& x, const int& y) const
+    {
+        return x < y;
+    }
+};
+set<int, Compare> st;
+multiset<int, Compare> ms;
+Ordered set & multiset
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+template<typename T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+template<typename T>
+using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+
+template<class T> struct Multiset {
+
+    ordered_multiset<T> ms;
+
+    void insert(const T& x) {
+        ms.insert(x);
+    }
+    bool exist(const T& x) const {
+        auto it = ms.upper_bound(x);
+        if (it == ms.end()) return false;
+        return *it == x;
+    }
+    bool erase(const T& x) {
+        if (!exist(x)) return false;
+        ms.erase(ms.upper_bound(x));
+        return true;
+    }
+    T operator [] (int p) const {
+        assert(p >= 0 && p < (int)ms.size());
+        return *ms.find_by_order(p);
+    }
+    typename ordered_multiset<T>::iterator begin() { return ms.begin(); }
+    typename ordered_multiset<T>::iterator  end() { return ms.end(); }
+    int first(const T& x) const {
+        if (!exist(x)) return -1;
+        return ms.order_of_key(x);
+    }
+    int last(const T& x) const {
+        if (!exist(x)) return -1;
+        if ((*this)[ms.size() - 1] == x) return ms.size() - 1;
+        return first(*ms.lower_bound(x)) - 1;
+    }
+    int lower(const T& x) const { // returns the index
+        if ((*this)[ms.size() - 1] < x) return -1;
+        return ms.order_of_key(x);
+    }
+    int count(const T& x) const {
+        if (!exist(x)) return 0;
+        return last(x) - first(x) + 1;
+    }
+    int size() const { return ms.size(); }
+    void clear() { ms.clear(); }
+};
+```
+
 ### 2D prefix and partial
 ```cpp 
 //2D prefix sum
