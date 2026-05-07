@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c8702c981eddc56d",
+        "id": "ce1adf5e796e6026",
         "type": "tabs",
         "children": [
           {
-            "id": "b865d296c313e50b",
+            "id": "37892c0b867919a8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random.md",
+                "file": "Data structure/Segment Tree.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Random"
+              "title": "Segment Tree"
             }
           }
         ]
@@ -183,41 +183,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "b865d296c313e50b",
+  "active": "37892c0b867919a8",
   "lastOpenFiles": [
-    "DP/Combining subtrees.md",
-    "Data structure/Sparse Table.md",
-    "Random.md",
+    "DP/CHT.md",
+    "Geomtry/Others.md",
+    "Geomtry/Polygon.md",
+    "Geomtry/Picks theorem.md",
+    "Geomtry/Rays.md",
+    "Geomtry/Rotating Calipers.md",
+    "Geomtry/Segment.md",
+    "Geomtry/Winding number.md",
+    "Geomtry/Transformations.md",
+    "Geomtry/Basics.md",
     "Geomtry/Circle.md",
-    "Number Theory/LDE and CRT.md",
-    "Data structure/HLD.md",
-    "Data structure/Compressor.md",
-    "Graph/LCA.md",
-    "Data structure/2D segtree.md",
+    "Geomtry/Convex Hull.md",
+    "Geomtry/Forumlas.md",
+    "Geomtry/Line.md",
+    "Geomtry/Helper Functions.md",
+    "Geomtry/Minkowski Sum.md",
     "Convolution/NTT.md",
     "Convolution/FWHT.md",
-    "DP/Divide and Conquer.md",
-    "DP/Knuth.md",
-    "Geomtry/Basics.md",
-    "Data structure/persistent Segment tree.md",
-    "DP/CHT.md",
-    "Graph/Matching.md",
-    "Data structure/2d sparsetable.md",
-    "Geomtry/Helper Functions.md",
-    "Geomtry/Polygon.md",
-    "Graph/Max Flow.md",
-    "Geomtry/Rotating Calipers.md",
-    "Geomtry/Picks theorem.md",
+    "Convolution/FFT tricks.md",
+    "Convolution/FFT.md",
     "Geomtry/Sweep line appliction/All pair Segment intersection.md",
-    "Geomtry/Sweep line appliction/Rectangle union.md",
-    "Geomtry/Sweep line appliction/Closest pair problem.md",
-    "DP",
-    "Geomtry/Sweep line appliction",
-    "Geomtry",
-    "Graph",
-    "Data structure",
-    "Strings",
-    "Number Theory",
-    "Convolution"
+    "Data structure/Segment Tree.md",
+    "Strings/Binary Trie.md",
+    "Strings/Trie.md",
+    "Data structure/Parallel DSU.md",
+    "Graph/LCA.md",
+    "Untitled",
+    "Random f .pdf",
+    "Random",
+    "Number Theory.pdf",
+    "Strings.pdf",
+    "Graph.pdf",
+    "geo.pdf",
+    "DP.pdf",
+    "Data Structure.pdf",
+    "Convolution.pdf"
   ]
 }

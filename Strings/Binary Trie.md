@@ -28,7 +28,6 @@ struct BinaryTrie {
         int node = 0;
         for(int bit = LG; bit >= 0; bit--) {
             int val = (((1<<bit)&x) != 0);
-
             node = trie[node].child[val];
             trie[node].f--;
         }
@@ -43,7 +42,6 @@ struct BinaryTrie {
                 ret |= (1<<bit);
             else
                 val ^= 1;
-
             node = trie[node].child[val];
             trie[node].f++;
         }

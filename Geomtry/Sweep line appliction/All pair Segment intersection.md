@@ -52,16 +52,16 @@ bool intersect(Segment s1, Segment s2) {
     return false;  
 }  
   
-struct Event {  
-    ld x;  
-    int type;  
-    int id;  
-  
-    bool operator<(const Event &other) const {  
-        if (abs(x - other.x) > EPS) return x < other.x;  
-        return type > other.type;  
-    }  
-};  
+	struct Event {  
+	    ld x;  
+	    int type;  
+	    int id;  
+	  
+	    bool operator<(const Event &other) const {  
+	        if (abs(x - other.x) > EPS) return x < other.x;  
+	        return type > other.type;  
+	    }  
+	};  
   
 bool has_intersection(vector<Segment> &segments) {  
     int n = segments.size();  
