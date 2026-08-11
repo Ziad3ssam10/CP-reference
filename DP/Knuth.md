@@ -42,7 +42,7 @@
   </mrow>
 </math>
 
-
+ Tested
 #### Cp algo 
 ```cpp
 int solve() {

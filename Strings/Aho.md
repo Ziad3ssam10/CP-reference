@@ -116,4 +116,37 @@ struct Aho {
         }
     }
 };
+``` 
+
+## add char (save the last node and add on it)
+```cpp
+    void addchar(int i, char c) {
+
+        int u = lst[i];
+
+        int nnx = node();
+
+        nxt[u][c - 'a'] = nnx;
+
+        out[u]--, out[nnx]++;
+
+        for (int c = 0; c < Alpha; ++c) {
+
+            int v = nxt[u][c];
+
+            if (!v) nxt[u][c] = nxt[link[u]][c];
+
+            else {
+
+                link[v] = u ? nxt[link[u]][c] : 0;
+
+                outlink[v] = (out[link[v]] == 0) ? outlink[link[v]] : link[v];
+
+            }
+
+        }
+
+        lst[i] = nnx;
+
+    }
 ```

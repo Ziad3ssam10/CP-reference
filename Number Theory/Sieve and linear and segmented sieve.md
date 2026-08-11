@@ -18,12 +18,18 @@ int N = 1000;
 
 // linear 
 
-const int N = 1e5 + 9;
-
-int spf[N];
-vector<int> primes;
-void sieve() {
-  ()
+const int N = 10000000;  
+int spf[N + 1];  
+vector<int> pr;  
+void linear_sieve() {  
+    spf[1] = 1;  
+    for (int i=2; i <= N; ++i) {  
+        if (spf[i] == 0) spf[i] = i, pr.push_back(i);  
+        for (int j = 0; i * pr[j] <= N; ++j) {  
+            spf[i * pr[j]] = pr[j];  
+            if (pr[j] == spf[i]) break;  
+        }  
+    }  
 }
 
 ```

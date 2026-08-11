@@ -50,9 +50,10 @@ other (faster)
 ```cpp
 
 struct SuffixArray {  
-    // suff is the suffix array with the empty suffix being suff[0]  
-    // lcp[i] holds the lcp between sa[i], sa[i - 1]    int n;  
-    vector<int> suff, lcp, pos, lg;  
+    // suff is the suffix array with the empty suffix being suff[0]    
+    // lcp[i] holds the lcp between sa[i], sa[i - 1]      
+    // int n;    
+vector<int> suff, lcp, pos, lg;  
     vector<array<int, 21> > table;  
     vector<int> c;  
   
@@ -63,7 +64,9 @@ struct SuffixArray {
         c.resize(n * 2, 0);  
         vector<int> tmp(n), frq(max(n, lim));  
         c.back() = 0;  
-        suff.resize(n); lcp.resize(n); pos.resize(n);  
+        suff.resize(n);  
+        lcp.resize(n);  
+        pos.resize(n);  
         iota(suff.begin(), suff.end(), 0);  
         for (int j = 0, p = 0; p < n; j = max(1, j * 2), lim = p) {  
             p = j, iota(tmp.begin(), tmp.end(), n - j);  
@@ -98,8 +101,8 @@ struct SuffixArray {
                 table[i][j] = min(table[i][j - 1], table[i + (1 << (j - 1))][j - 1]);  
     }  
   
-    // pass the pos of the suffixes  
-    int queryLcp(int i, int j) {  
+    // pass the pos of the suffixes    
+int queryLcp(int i, int j) {  
         if (i == j) return n - suff[i] - 1;  
         if (i > j) swap(i, j);  
         i++;  

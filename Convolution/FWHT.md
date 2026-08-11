@@ -1,3 +1,5 @@
+Tested
+
 ```cpp
 ll add(ll a, ll b) {
     return (a + b);
@@ -51,7 +53,7 @@ vector<ll> multiply(vector<ll> a, vector<ll> b, ll f) {
     return c;
 }
 ```
-
+## Faster 
 ```cpp
 template<int MOD>  
 struct FWHT {  
@@ -62,15 +64,15 @@ struct FWHT {
                 res = 1ll * res * b % MOD;  
         return res;  
     }  
-  
+   
     inline int add(int x, int y) {  
         return x + y - (x + y >= MOD ? MOD : 0);  
     }  
-  
+   
     inline int sub(int x, int y) {  
         return x - y + (x - y < 0 ? MOD : 0);  
     }  
-  
+   
     void FST(vector<int> &a, bool inv) {  
         for (int n = (int) a.size(), step = 1; step < n; step *= 2) {  
             for (int i = 0; i < n; i += 2 * step)  
@@ -86,7 +88,7 @@ struct FWHT {
             for (int &x: a) x = 1ll * x * divisor % MOD; // XOR only /// include-line  
         }  
     }  
-  
+   
     vector<int> conv(vector<int> a, vector<int> b) {  
         FST(a, 0);  
         FST(b, 0);  

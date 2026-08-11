@@ -21,7 +21,8 @@ An Eulerian path is a path in a graph that visits every edge exactly once. An Eu
 - A graph has an Eulerian circuit if and only if all vertices have equal in-degree and out-degree
 
 ```cpp
-// 1-based
+// 1-based 
+// Tested
 struct Eulerian {
     int n;
     bool directed;

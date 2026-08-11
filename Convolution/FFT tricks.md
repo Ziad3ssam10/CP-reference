@@ -53,6 +53,7 @@ To find how many ways to form a sum using any subset of elements:
 - **Advanced:** Use $\ln$ and $\exp$ to turn the product into a sum: $\exp(\sum \ln(1 + x^{v_i}))$. This reduces the complexity to $O(W \log W)$ where $W$ is the maximum possible sum.
 
 ### String matching 
+Finds the shift(s) that yield the maximum number of matching characters between a text and a pattern.
  * ret[k] = number of matching characters between pat and s shifted by k
 ```cpp
 vector<int> string_matching(string &s, string &pat) {
@@ -95,59 +96,11 @@ void solve(int tc) {
 ```
 
 ### wild card 
+Finds all exact starting positions where a pattern matches a string, supporting wildcard characters (e.g., `*` that can match any letter).
 ```cpp
 using cd = complex<double>;
 const double PI = acos(-1), eps = 5e-4; // If you get a wrong answer you can change the eps lower of higher till you pass
 
-void fft(vector<cd> & a, bool invert) {
-    int n = a.size();
-
-    for (int i = 1, j = 0; i < n; i++) {
-        int bit = n >> 1;
-        for (; j & bit; bit >>= 1)
-            j ^= bit;
-        j ^= bit;
-
-        if (i < j)
-            swap(a[i], a[j]);
-    }
-
-    for (int len = 2; len <= n; len <<= 1) {
-        double ang = 2 * PI / len * (invert ? -1 : 1);
-        cd wlen(cos(ang), sin(ang));
-        for (int i = 0; i < n; i += len) {
-            cd w(1);
-            for (int j = 0; j < len / 2; j++) {
-                cd u = a[i+j], v = a[i+j+len/2] * w;
-                a[i+j] = u + v;
-                a[i+j+len/2] = u - v;
-                w *= wlen;
-            }
-        }
-    }
-
-    if (invert) {
-        for (cd & x : a)
-            x /= n;
-    }
-}
-
-vector<cd> multiply(vector<cd> const& a, vector<cd> const& b) {
-    vector<cd> fa(a.begin(), a.end()), fb(b.begin(), b.end());
-    int n = 1;
-    while (n < (int)a.size() + (int)b.size())
-        n <<= 1;
-    fa.resize(n);
-    fb.resize(n);
-
-    fft(fa, false);
-    fft(fb, false);
-    for (int i = 0; i < n; i++)
-        fa[i] *= fb[i];
-    fft(fa, true);
-
-    return fa;
-}
 
 void solve(int tc) {
 
@@ -188,62 +141,9 @@ void solve(int tc) {
 ```
 
 ### Excat match
+Another approach to finding all exact starting positions of a pattern (with all wildcards) inside a text.
 ```cpp
-using cd = complex<double>;
-const double PI = acos(-1);
 
-void fft(vector<cd> & a, bool invert) {
-    int n = a.size();
-
-    for (int i = 1, j = 0; i < n; i++) {
-        int bit = n >> 1;
-        for (; j & bit; bit >>= 1)
-            j ^= bit;
-        j ^= bit;
-
-        if (i < j)
-            swap(a[i], a[j]);
-    }
-
-    for (int len = 2; len <= n; len <<= 1) {
-        double ang = 2 * PI / len * (invert ? -1 : 1);
-        cd wlen(cos(ang), sin(ang));
-        for (int i = 0; i < n; i += len) {
-            cd w(1);
-            for (int j = 0; j < len / 2; j++) {
-                cd u = a[i+j], v = a[i+j+len/2] * w;
-                a[i+j] = u + v;
-                a[i+j+len/2] = u - v;
-                w *= wlen;
-            }
-        }
-    }
-
-    if (invert) {
-        for (cd & x : a)
-            x /= n;
-    }
-}
-
-vector<int> multiply(vector<int> const& a, vector<int> const& b) {
-    vector<cd> fa(a.begin(), a.end()), fb(b.begin(), b.end());
-    int n = 1;
-    while (n < (int)a.size() + (int)b.size())
-        n <<= 1;
-    fa.resize(n);
-    fb.resize(n);
-
-    fft(fa, false);
-    fft(fb, false);
-    for (int i = 0; i < n; i++)
-        fa[i] *= fb[i];
-    fft(fa, true);
-
-    vector<int> result(n);
-    for (int i = 0; i < n; i++)
-        result[i] = round(fa[i].real());
-    return result;
-}
 
 void solve(int tc) {
 

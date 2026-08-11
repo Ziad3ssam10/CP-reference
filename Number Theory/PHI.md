@@ -33,19 +33,6 @@ int phi(int n) {
 }
 ```
 
-### Phi from 1 to n 
-```cpp
-void phi_1_to_n(int n) {
-    vector<int> phi(n + 1);
-    phi[0] = 0;
-    phi[1] = 1;
-    for (int i = 2; i <= n; i++)
-        phi[i] = i - 1;
-
-    for (int i = 2; i <= n; i++)
-        for (int j = 2 * i; j <= n; j += i)
-              phi[j] -= phi[i];
-}
 
 ```
 
@@ -94,39 +81,49 @@ void segmented_phi(long long L, long long R) {
 
 ```cpp
 const int N = 1e6 + 5;  
-int phi[N], g[N], lcm_sum[N];  
-vector<int> divi[N];  
+// PHI(prime ^ k) = P^k (1-(1/p))  
+int phi[N];  
 // phi[i] = number of integers j that are coprime with i (j <= i)  
-// g[i] = sum of gcd(a, b) for all 1 ≤ a < b ≤ i  
-// lcm_sum[i] = sum of LCM(j,i) for 1 ≤ j ≤ i  
-void euler() {  
+void euler()  
+{  
     for (int i = 1; i < N; ++i)  
         phi[i] = i;  
-    for (int i = 2; i < N; ++i) {  
-        if (phi[i] == i) {  
-            for (int j = i; j < N; j += i) {  
+    for (int i = 2; i < N; ++i)  
+    {  
+        if (phi[i] == i)  
+        {  
+            for (int j = i; j < N; j += i)  
+            {  
                 phi[j] -= phi[j] / i;  
             }  
         }  
     }  
-    for (int i = 1; i < N; ++i) {  
-        for (int j = i; j < N; j += i) {  
-            divi[j].push_back(i);  
-        }  
-    }  
-    for (int d = 1; d < N; ++d) {  
-        for (int k = d << 1; k < N; k += d) {  
-            g[k] += d * phi[k / d];  
-        }  
-    }  
-    for (int i = 1; i < N; ++i)  
-        g[i] += g[i - 1];  
-    for (int n = 1; n < N; ++n) {  
-        lcm_sum[n] = 0;  
-        for (int &d: divi[n]) {  
-            lcm_sum[n] += phi[d] * d;  
-        }  
-        lcm_sum[n] = n * (lcm_sum[n] + 1) / 2; // +1 to account for d = n  
-    }  
-}
+}  
+  
+  
+// ********************************************  
+  
+for (int i = 1; i < N; ++i)  
+    for (int j = 2 * i; j < N; j += i)  
+        ans[j] += i * phi[j / i];  
+  
+for (int i = 1; i < N; ++i)  
+    ans[i] += ans[i - 1];  
+  
+// ans[i] = sum gcd(x, y) 1 <= x < y <= i  
+  
+  
+// ********************************************  
+  
+for (int i = 2; i < N; ++i) {  
+    for (int j = i; j < N; j += i)  
+        Lcm[j] += (ull)i * phi[i];  
+}  
+for (int i = 1; i < N; ++i) Lcm[i] *= (ull)i, Lcm[i] >>= 1;  
+// Lcm[i] = sum of lcm(i, j) such that 1 <= j < i  
+  
+// With this prefix sum, Lcm[i] = sum lcm(x, y) 1 <= x < y <= i  
+// If you want x can be = y, add it manaully :)  
+for (int i = 1; i < N; ++i)  
+    Lcm[i] += Lcm[i - 1];
 ```

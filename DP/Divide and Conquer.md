@@ -42,7 +42,7 @@
 </math>
 
 
-
+Tested
 ```cpp
 #include <bits/stdc++.h>  
 #include <ext/pb_ds/assoc_container.hpp>  
@@ -68,7 +68,7 @@ void files() {
 #endif  
 }  
   
-	`const int N = 1e5 + 20, K = 22;  
+	const int N = 1e5 + 20, K = 22;  
 	int dp[K][N];  
 	int a[N];  
 	int ans = 0;  

@@ -1,88 +1,77 @@
 ```cpp
 
-#include <bits/stdc++.h>
-using namespace std;
-#define ll long long
-const int N=200005;
-int n,c[N],sz[N],ans[N];vector<int>adj[N],subTree[N];map<int,int>m;
-void dfs(int node,int par)
-{
-    sz[node]=1;
-    for(auto it:adj[node])
-    {
-        if(it!=par)
-        {
-            dfs(it,node);
-            sz[node]+=sz[it];
-        }
-    }
+int const N = 2e5 + 5;
+
+int sz[N], heavy[N];
+
+vector<int> adj[N];
+
+void preDfs(int u, int p) { // CALL
+
+    sz[u] = 1;
+
+    for (auto &v : adj[u]) {
+
+        if (v == p) continue;
+
+        preDfs(v, u);
+
+        sz[u] += sz[v];
+
+        if (sz[v] > sz[heavy[u]])
+
+            heavy[u] = v;
+
+    }
+
 }
-void sack(int node,int par,bool keep)
-{
-    // find big child
-    int mx=-1,bigCh=-1;
-    for(auto it:adj[node])
-    {
-        if(it!=par&&mx<sz[it])
-        {
-            mx=sz[it];
-            bigCh=it;
-        }
-    }
-    // go deep into small children
-    for(auto it:adj[node])
-    {
-        if(it!=par&&it!=bigCh)
-        {
-            sack(it,node,0);
-        }
-    }
-    // go deep into big child
-    if(~bigCh)
-    {
-        sack(bigCh,node,1);
-        swap(subTree[node],subTree[bigCh]);
-    }
-    // add information of node
-    subTree[node].push_back(node);
-    m[c[node]]++;
-    for(auto it:adj[node])
-    {
-        if(it!=par&&it!=bigCh)
-        {
-            for(auto u:subTree[it])
-            {
-                m[c[u]]++;
-                subTree[node].push_back(u);
-            }
-        }
-    }
-    ans[node]=m.size();
-    // small to large
-    if(keep==0)
-    {
-        for(auto it:subTree[node])
-        {
-            m[c[it]]--;
-            if(m[c[it]]==0) m.erase(m.find(c[it]));
-        }
-    }
+
+void update(int u, int d) {
+
+    // Logic Add , Rem
+
 }
-signed main()
-{
-    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    cin>>n;
-    for(int i=1;i<=n;i++) cin>>c[i];
-    for(int i=1;i<n;i++)
-    {
-        int a,b;cin>>a>>b;
-        adj[a].push_back(b);
-        adj[b].push_back(a);
-    }
-    dfs(1,1);
-    sack(1,1,0);
-    for(int i=1;i<=n;i++) cout<<ans[i]<<' ';
-    return 0;
+
+void collect(int u, int p, int d) {
+
+    update(u, d);
+
+    for (auto &v : adj[u]) {
+
+        if (v == p) continue;
+
+        collect(v, u, d);
+
+    }
+
+}
+
+void dfs(int u, int p, bool keep) { // CALL
+
+    for (auto &v : adj[u]) {
+
+        if (v == p || heavy[u] == v) continue;
+
+        dfs(v, u, 0); // Keep The Heavy
+
+    }
+
+    if (heavy[u]) dfs(heavy[u], u, 1);
+
+    update(u, 1);
+
+    for (auto &v : adj[u]) {
+
+        if (v == p || v == heavy[u]) continue; // Didn't Remove The Heavy
+
+        collect(v, u, +1);  
+
+    }
+
+    // ans the query for the subtree of u
+
+    if (!keep) collect(u, p, -1);
+
 }
 
 ```

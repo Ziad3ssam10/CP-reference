@@ -14,86 +14,59 @@ $$
 $$  
   
   
-### Key Identity  
-  
-$$  
-\sum_{d\mid n}\mu(d)=  
-\begin{cases}  
-1 & n=1,\\  
-0 & n>1.  
-\end{cases}  
-$$  
-  
-$$  
-\mu * 1 = \varepsilon  
-$$  
-  
   
 ### Möbius Inversion  
+  ```cpp
+  // Given X
+
+// How many i s.t gcd(X, i) = 1
+
+// 1 <= i <= n
+
+// sum over d (mob[d] * (n / d))
+
+// d is a divisor of X
+
   
-$$  
-f(n)=\sum_{d\mid n} g(d)  
-$$  
+
+// Count pairs gcd(ai, aj) = 1
+
+// frq[i] = frq of all multiples of i
+
   
-$$  
-\Longrightarrow  
-$$  
+
+/*
+
+for (int i = 1; i < N; ++i)
+
+        ans += mob[i] * (1LL * frq[i] * (frq[i] - 1)) / 2;
+
+*/  
+
+// If you want subset of k
+
+  // mob[i] * (frq[i]Ck)
+
   
-$$  
-g(n)=\sum_{d\mid n}\mu(d)\,f\!\left(\frac{n}{d}\right)  
-=\sum_{d\mid n}\mu\!\left(\frac{n}{d}\right)f(d)  
-$$  
+
+//   f(n) = sum i, j gcd(i, j)
+
+// can do with it the same coprime counting -> tot C k
+
   
+
+// When
+
+// f(n) = sum i, j Lcm(a_i, a_j)
+
   
-### Euler Totient Application  
-  
-$$  
-\sum_{d\mid n}\varphi(d)=n  
-$$  
-  
-$$  
-\varphi(n)=\sum_{d\mid n}\mu(d)\frac{n}{d}  
-$$  
-  
-  
-### Cyclotomic Formula  
-  
-$$  
-x^n-1=\prod_{d\mid n}\Phi_d(x)  
-$$  
-  
-$$  
-\Phi_n(x)=\prod_{d\mid n}(x^d-1)^{\mu(n/d)}  
-$$  
-  
-  
-### Dirichlet Series  
-  
-$$  
-\sum_{n=1}^{\infty}\frac{\mu(n)}{n^s}  
-=\frac{1}{\zeta(s)},  
-\quad \Re(s)>1  
-$$  
-  
-  
-### Useful Identities  
-  
-$$  
-\sum_{d\mid n}\mu^2(d)=2^{\omega(n)}  
-$$  
-  
-$$  
-\sum_{d\mid n}\mu^2(d)\varphi(d)  
-=\frac{n}{\varphi(n)}  
-$$  
+
+// replace 1+n/l * n/l with S(L)
+
+// S(L) = sum of all elements divisible by L
+  ```  
   
   
-### Average Order  
-  
-$$  
-\lim_{x\to\infty}  
-\frac{1}{x}\sum_{n\le x}\mu(n)=0  
-$$
 
 ### codes 
 ```cpp
@@ -103,5 +76,22 @@ for (int i = 1; i < VALMAX; i++) {
 		mobius[i] = -mobius[i];
 		for (int j = 2 * i; j < VALMAX; j += i) { mobius[j] += mobius[i]; }
 	}
+}
+
+
+const int N = 1e7 + 5;    
+int mob[N]{0};    
+int spf[N], pr[N], sz;    
+void mobius() {    
+    mob[1] = 1;    
+    for (int i = 2; i < N; ++i) {    
+        if (!spf[i]) spf[i] = i, pr[sz++] = i, mob[i] = -1;    
+        for (int j = 0; pr[j] * i < N; ++j) {    
+            spf[i * pr[j]] = pr[j];    
+            if (spf[i] == pr[j])    
+                break;    
+            mob[i * pr[j]] = -mob[i];    
+        }    
+    }    
 }
 ```
